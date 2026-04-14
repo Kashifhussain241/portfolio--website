@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kashif Hussain — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F8F6F1;
+  --white: #FFFFFF;
+  --dark: #111111;
+  --mid: #555555;
+  --light: #999999;
+  --border: #E5E2DA;
+  --orange: #FF5722;
+  --orange-light: #FFF0EB;
+  --teal: #0B7B6B;
+  --teal-light: #E6F5F2;
+  --card: #FFFFFF;
+  --pill-bg: #F0EEE8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
+}
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(248,246,241,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+}
+.logo span { color: var(--orange); }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--orange); }
+.nav-cta {
+  background: var(--dark) !important;
+  color: #fff !important;
+  padding: 0.45rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--orange) !important; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  padding: 130px 5% 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-deco {
+  position: absolute;
+  right: -80px; top: 50%;
+  transform: translateY(-50%);
+  width: 550px; height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,87,34,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--orange-light);
+  color: var(--orange);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.8rem;
+  width: fit-content;
+  animation: fadeUp 0.6s 0.1s both;
+}
+.badge-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: pulse 2s infinite;
+}
+.hero-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(2.8rem, 7.5vw, 6.8rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  animation: fadeUp 0.7s 0.2s both;
+}
+.hero-name .accent { color: var(--orange); }
+.hero-tagline {
+  margin-top: 2rem;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--mid);
+  font-weight: 300;
+  max-width: 540px;
+  line-height: 1.75;
+  animation: fadeUp 0.7s 0.35s both;
+}
+.hero-tagline strong { color: var(--dark); font-weight: 600; }
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  animation: fadeUp 0.7s 0.5s both;
+}
+.btn-primary {
+  background: var(--orange);
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,87,34,0.35); }
+.btn-outline {
+  border: 1.5px solid var(--border);
+  color: var(--dark);
+  background: transparent;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--dark); background: var(--dark); color: #fff; }
+.hero-stats {
+  display: flex;
+  gap: 3.5rem;
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.7s 0.65s both;
+}
+.stat-val {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+.stat-val span { color: var(--orange); }
+.stat-lbl { font-size: 0.75rem; color: var(--light); margin-top: 0.2rem; }
+
+/* SECTIONS */
+section { padding: 90px 5%; }
+.sec-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.9rem;
+}
+.sec-label::before {
+  content: '';
+  display: block;
+  width: 18px; height: 2px;
+  background: var(--orange);
+  border-radius: 2px;
+}
+.sec-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.sec-sub {
+  font-size: 1rem;
+  color: var(--mid);
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 3.5rem;
+}
+
+/* ABOUT */
+#about {
+  background: var(--dark);
+  color: #fff;
+  padding: 80px 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.about-left .sec-label { color: #FF8A65; }
+.about-left .sec-label::before { background: #FF8A65; }
+.about-left .sec-title { color: #fff; font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 1.5rem; }
+.about-left p { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 1.1rem; }
+.about-left p strong { color: #fff; font-weight: 600; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.astat {
+  background: #181818;
+  padding: 2rem 1.8rem;
+  transition: background 0.25s;
+}
+.astat:hover { background: #1f1f1f; }
+.astat-num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.astat-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+
+/* SKILLS */
+#skills { background: var(--white); }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.sk-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.8rem;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.sk-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(255,87,34,0.1);
+}
+.sk-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+.ic-or { background: var(--orange-light); }
+.ic-tl { background: var(--teal-light); }
+.ic-dk { background: #F0EEE8; }
+.sk-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.01em;
+}
+.sk-pills { display:flex; flex-wrap:wrap; gap:0.35rem; }
+.spill {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.28rem 0.65rem;
+  background: var(--pill-bg);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  color: var(--mid);
+}
+.sk-bar { margin-top: 1.2rem; height: 3px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.sk-fill { height: 100%; border-radius: 3px; background: var(--orange); }
+
+/* WORK */
+#work { background: var(--bg); }
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.wcard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.wcard:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.09); }
+.wcard.wide { grid-column: 1 / -1; display:grid; grid-template-columns: 1fr 1fr; }
+.wthumb {
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 16/9;
+  position: relative; overflow: hidden;
+}
+.wcard.wide .wthumb { aspect-ratio: auto; min-height: 260px; }
+.tw1 { background: linear-gradient(140deg, #0F1923 0%, #1A3045 100%); }
+.tw2 { background: linear-gradient(140deg, #1A0A1F 0%, #3A1555 100%); }
+.tw3 { background: linear-gradient(140deg, #0A1F1A 0%, #0F4035 100%); }
+.mbrowser {
+  width: 76%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.mbar {
+  background: rgba(255,255,255,0.07);
+  padding: 6px 10px;
+  display: flex; gap: 5px; align-items: center;
+}
+.mdot { width: 7px; height: 7px; border-radius: 50%; }
+.mbody { padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+.mline { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.1); }
+.mline.ac { background: rgba(255,87,34,0.5); }
+.mposter {
+  width: 54%;
+  aspect-ratio: 9/16;
+  max-height: 210px;
+  border-radius: 8px;
+  background: linear-gradient(155deg, rgba(255,87,34,0.3), rgba(180,60,200,0.3));
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.5rem; font-size: 2rem;
+}
+.mposter-lbl {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.5);
+}
+.mthumbs { display:flex; flex-direction:column; gap:0.5rem; width:78%; }
+.myt {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.my1 { background: linear-gradient(135deg,rgba(255,87,34,0.35),rgba(255,200,50,0.25)); }
+.my2 { background: linear-gradient(135deg,rgba(50,100,255,0.35),rgba(100,50,200,0.25)); }
+.winfo { padding: 1.6rem 2rem 2rem; }
+.wcard.wide .winfo { display:flex; flex-direction:column; justify-content:center; padding:2.5rem 3rem; }
+.wcat {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 0.5rem;
+}
+.wtitle {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.05rem; font-weight: 700;
+  letter-spacing: -0.02em; margin-bottom: 0.7rem; line-height: 1.3;
+}
+.wdesc { font-size: 0.84rem; color: var(--mid); line-height: 1.7; margin-bottom: 1.2rem; }
+.wtags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.wtag {
+  font-size: 0.68rem; font-weight: 500;
+  padding: 0.28rem 0.65rem;
+  background: var(--orange-light); color: var(--orange);
+  border-radius: 50px;
+}
+
+/* VIDEO */
+#video { background: var(--white); }
+.vgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+.vcard {
+  border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.vcard:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(0,0,0,0.08); border-color:#ccc; }
+.vthumb {
+  aspect-ratio: 16/9;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem; position: relative;
+}
+.vt1 { background: linear-gradient(135deg,#1A0A0A,#3D1210); }
+.vt2 { background: linear-gradient(135deg,#0A180A,#0F3520); }
+.vt3 { background: linear-gradient(135deg,#0A0A1A,#151535); }
+.vplay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s;
+}
+.vcard:hover .vplay { opacity: 1; }
+.vcirc {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--dark); font-size: 1rem;
+}
+.vbody { padding: 1.2rem 1.4rem 1.6rem; }
+.vtype {
+  font-size: 0.66rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 0.4rem;
+}
+.vtitle {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.35;
+}
+.vdesc { font-size: 0.78rem; color: var(--mid); line-height: 1.65; }
+
+/* CONTACT */
+#contact { background: var(--bg); }
+.contact-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.cleft .sec-title { margin-bottom: 0.8rem; }
+.cleft > p { color: var(--mid); line-height: 1.7; margin-bottom: 2rem; font-size: 0.95rem; }
+.citems { display:flex; flex-direction:column; gap:1rem; }
+.citem {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none; color: var(--dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.citem:hover { border-color: var(--orange); box-shadow: 0 4px 20px rgba(255,87,34,0.1); }
+.cico {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--orange-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.05rem; flex-shrink: 0;
+}
+.clbl { font-size: 0.7rem; color: var(--light); margin-bottom: 0.1rem; }
+.cval { font-size: 0.88rem; font-weight: 600; }
+.cright { display:flex; flex-direction:column; gap:1rem; }
+.cfg { display:flex; flex-direction:column; gap:0.4rem; }
+.cfg label { font-size: 0.78rem; font-weight: 500; color: var(--mid); }
+.cfg input, .cfg textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--dark);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.cfg input:focus, .cfg textarea:focus { border-color: var(--orange); }
+.cfg textarea { resize: vertical; min-height: 100px; }
+.csub {
+  background: var(--orange); color: #fff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; font-weight: 600;
+  cursor: pointer; align-self: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.csub:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,87,34,0.35); }
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.35);
+  padding: 2rem 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.78rem;
+}
+.flogo {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.9rem; font-weight: 700; color: #fff;
+}
+.flogo span { color: var(--orange); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes pulse {
+  0%,100% { opacity:1; } 50% { opacity:0.35; }
+}
+.reveal { opacity:0; transform:translateY(30px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.in { opacity:1; transform:none; }
+
+/* RESPONSIVE */
+@media (max-width:900px) {
+  .skills-grid { grid-template-columns:1fr 1fr; }
+  .work-grid { grid-template-columns:1fr; }
+  .wcard.wide { grid-template-columns:1fr; }
+  .vgrid { grid-template-columns:1fr 1fr; }
+  #about { grid-template-columns:1fr; gap:2.5rem; }
+  .contact-box { grid-template-columns:1fr; gap:2.5rem; padding:2.5rem; }
+  .hero-stats { gap:2rem; }
+}
+@media (max-width:600px) {
+  .nav-links { display:none; }
+  .skills-grid { grid-template-columns:1fr; }
+  .vgrid { grid-template-columns:1fr; }
+  .hero-stats { flex-wrap:wrap; gap:1.5rem; }
+  footer { flex-direction:column; gap:0.8rem; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">K<span>.</span>Hussain</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-badge"><span class="badge-dot"></span> Available for Freelance &amp; Internships</div>
+  <h1 class="hero-name">KASHIF<br><span class="accent">HUSSAIN</span></h1>
+  <p class="hero-tagline">
+    Software Engineering student crafting <strong>beautiful websites</strong>, stunning <strong>graphic designs</strong>, and engaging <strong>video content</strong> — where code meets creativity.
+  </p>
+  <div class="hero-actions">
+    <a href="#work" class="btn-primary">View My Work →</a>
+    <a href="#contact" class="btn-outline">Get in Touch</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-val">3<span>+</span></div><div class="stat-lbl">Years Freelancing</div></div>
+    <div><div class="stat-val">50<span>+</span></div><div class="stat-lbl">Projects Done</div></div>
+    <div><div class="stat-val">8<span>th</span></div><div class="stat-lbl">Semester — BSSE</div></div>
+    <div><div class="stat-val">5<span>★</span></div><div class="stat-lbl">Client Satisfaction</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-left reveal">
+    <div class="sec-label">About Me</div>
+    <h2 class="sec-title">The person behind<br>the work</h2>
+    <p>I'm a <strong>final-year Software Engineering student</strong> at Iqra University Islamabad with a passion for building things that look great and work even better.</p>
+    <p>Since 2022, I've been freelancing — editing videos for YouTube creators, designing social media content for brands, and building web projects using Python and HTML/CSS. I deliver quality work on time, every time.</p>
+    <p>I stay ahead with <strong>AI tools</strong> like Claude, ChatGPT, and Midjourney — integrating them practically to work faster and smarter.</p>
+  </div>
+  <div class="about-grid reveal">
+    <div class="astat"><div class="astat-num">3+</div><div class="astat-lbl">Years freelancing</div></div>
+    <div class="astat"><div class="astat-num">50+</div><div class="astat-lbl">Projects delivered</div></div>
+    <div class="astat"><div class="astat-num">3</div><div class="astat-lbl">Languages spoken</div></div>
+    <div class="astat"><div class="astat-num">100%</div><div class="astat-lbl">Remote ready</div></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-label reveal">What I Do</div>
+  <h2 class="sec-title reveal">Skills &amp; Tools</h2>
+  <p class="sec-sub reveal">From writing code to designing visuals and editing videos — a full creative toolkit.</p>
+  <div class="skills-grid">
+    <div class="sk-card reveal">
+      <div class="sk-icon ic-or">🌐</div>
+      <div class="sk-name">Web Development</div>
+      <div class="sk-pills">
+        <span class="spill">Python</span><span class="spill">HTML5</span><span class="spill">CSS3</span><span class="spill">Bootstrap</span><span class="spill">Responsive</span>
+      </div>
+      <div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-icon ic-tl">🎨</div>
+      <div class="sk-name">Graphic Design</div>
+      <div class="sk-pills">
+        <span class="spill">Photoshop</span><span class="spill">Canva</span><span class="spill">Posters</span><span class="spill">Logos</span><span class="spill">Banners</span>
+      </div>
+      <div class="sk-bar"><div class="sk-fill" style="width:92%"></div></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-icon ic-or">🎬</div>
+      <div class="sk-name">Video Editing</div>
+      <div class="sk-pills">
+        <span class="spill">CapCut</span><span class="spill">Short-Form</span><span class="spill">Long-Form</span><span class="spill">Motion Graphics</span>
+      </div>
+      <div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-icon ic-dk">🖼️</div>
+      <div class="sk-name">Thumbnail Design</div>
+      <div class="sk-pills">
+        <span class="spill">YouTube</span><span class="spill">CTR Boost</span><span class="spill">Photoshop</span><span class="spill">Branding</span>
+      </div>
+      <div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-icon ic-tl">🤖</div>
+      <div class="sk-name">AI Tools</div>
+      <div class="sk-pills">
+        <span class="spill">Claude AI</span><span class="spill">ChatGPT</span><span class="spill">Midjourney</span><span class="spill">AI Workflow</span>
+      </div>
+      <div class="sk-bar"><div class="sk-fill" style="width:94%"></div></div>
+    </div>
+    <div class="sk-card reveal">
+      <div class="sk-icon ic-or">💻</div>
+      <div class="sk-name">Programming</div>
+      <div class="sk-pills">
+        <span class="spill">Python</span><span class="spill">OOP</span><span class="spill">Data Structures</span><span class="spill">DBMS</span>
+      </div>
+      <div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="sec-label reveal">Portfolio</div>
+  <h2 class="sec-title reveal">Selected Work</h2>
+  <p class="sec-sub reveal">A showcase of web, design, and creative projects built with care.</p>
+  <div class="work-grid">
+    <div class="wcard wide reveal">
+      <div class="wthumb tw1">
+        <div class="mbrowser">
+          <div class="mbar">
+            <div class="mdot" style="background:#FF5F57"></div>
+            <div class="mdot" style="background:#FFBD2E"></div>
+            <div class="mdot" style="background:#28CA41"></div>
+          </div>
+          <div class="mbody">
+            <div class="mline ac" style="width:45%;height:9px;margin-bottom:4px;border-radius:4px;"></div>
+            <div class="mline" style="width:100%"></div>
+            <div class="mline" style="width:75%"></div>
+            <div class="mline" style="width:55%"></div>
+            <div style="display:flex;gap:6px;margin-top:6px;">
+              <div style="width:58px;height:24px;background:rgba(255,87,34,0.4);border-radius:20px;"></div>
+              <div style="width:58px;height:24px;background:rgba(255,255,255,0.06);border-radius:20px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="winfo">
+        <div class="wcat">Web Development · Featured</div>
+        <div class="wtitle">Personal Portfolio Website</div>
+        <p class="wdesc">A fully responsive personal portfolio built with Python backend and clean HTML/CSS frontend. Features smooth scrolling, mobile-first layout, dynamic content sections, and cross-browser compatibility across Chrome, Firefox, and Safari.</p>
+        <div class="wtags">
+          <span class="wtag">Python</span><span class="wtag">HTML5</span><span class="wtag">CSS3</span><span class="wtag">Responsive</span><span class="wtag">Mobile-First</span>
+        </div>
+      </div>
+    </div>
+    <div class="wcard reveal">
+      <div class="wthumb tw2">
+        <div class="mposter">🎨<div class="mposter-lbl">SOCIAL POST</div></div>
+      </div>
+      <div class="winfo">
+        <div class="wcat">Graphic Design · Social Media</div>
+        <div class="wtitle">Social Media Posters &amp; Creatives</div>
+        <p class="wdesc">Branded social media content for Instagram, TikTok, and e-commerce clients — logos, promotional banners, carousels, and story templates designed in Photoshop &amp; Canva.</p>
+        <div class="wtags">
+          <span class="wtag">Photoshop</span><span class="wtag">Canva</span><span class="wtag">Instagram</span><span class="wtag">Branding</span>
+        </div>
+      </div>
+    </div>
+    <div class="wcard reveal">
+      <div class="wthumb tw3">
+        <div class="mthumbs">
+          <div class="myt my1">🔥</div>
+          <div class="myt my2">⚡</div>
+        </div>
+      </div>
+      <div class="winfo">
+        <div class="wcat">Graphic Design · YouTube</div>
+        <div class="wtitle">YouTube Thumbnail Design</div>
+        <p class="wdesc">High-converting thumbnails designed to maximize click-through rates across gaming, tech, lifestyle, and educational YouTube channels — tailored to each creator's brand.</p>
+        <div class="wtags">
+          <span class="wtag">Photoshop</span><span class="wtag">Canva</span><span class="wtag">YouTube</span><span class="wtag">CTR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="sec-label reveal">Multimedia</div>
+  <h2 class="sec-title reveal">Video Editing</h2>
+  <p class="sec-sub reveal">From full YouTube productions to viral short-form content — complete post-production services.</p>
+  <div class="vgrid">
+    <div class="vcard reveal">
+      <div class="vthumb vt1">🎞️<div class="vplay"><div class="vcirc">▶</div></div></div>
+      <div class="vbody">
+        <div class="vtype">Long-Form · YouTube</div>
+        <div class="vtitle">Full YouTube Productions</div>
+        <p class="vdesc">End-to-end post-production — cuts, transitions, colour grading, motion graphics, subtitles, and channel branding for YouTube creators.</p>
+      </div>
+    </div>
+    <div class="vcard reveal">
+      <div class="vthumb vt2">📱<div class="vplay"><div class="vcirc">▶</div></div></div>
+      <div class="vbody">
+        <div class="vtype">Short-Form · Reels &amp; TikTok</div>
+        <div class="vtitle">Viral Short-Form Content</div>
+        <p class="vdesc">Hook-driven short videos for Instagram Reels, TikTok, and YouTube Shorts — trending audio, snappy cuts, and captions optimized for engagement.</p>
+      </div>
+    </div>
+    <div class="vcard reveal">
+      <div class="vthumb vt3">✨<div class="vplay"><div class="vcirc">▶</div></div></div>
+      <div class="vbody">
+        <div class="vtype">Motion Graphics · Effects</div>
+        <div class="vtitle">Motion &amp; Visual Effects</div>
+        <p class="vdesc">Dynamic transitions, kinetic typography, text animations, and custom motion graphics that transform raw footage into polished, professional content.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sec-label reveal">Let's Connect</div>
+  <div class="contact-box reveal">
+    <div class="cleft">
+      <h2 class="sec-title">Let's work<br>together</h2>
+      <p>Have a project in mind? Looking for a freelancer or an intern? Reach out — I'd love to hear from you.</p>
+      <div class="citems">
+        <a href="tel:+923348972838" class="citem">
+          <div class="cico">📞</div>
+          <div><div class="clbl">Phone / WhatsApp</div><div class="cval">0334 8972838</div></div>
+        </a>
+        <a href="mailto:kashifdeg9900@gmail.com" class="citem">
+          <div class="cico">✉️</div>
+          <div><div class="clbl">Email</div><div class="cval">kashifdeg9900@gmail.com</div></div>
+        </a>
+        <a href="https://linkedin.com/in/kashif-hussain-8b131a299" target="_blank" class="citem">
+          <div class="cico">🔗</div>
+          <div><div class="clbl">LinkedIn</div><div class="cval">kashif-hussain-8b131a299</div></div>
+        </a>
+        <a href="https://github.com/Kashifhussain241" target="_blank" class="citem">
+          <div class="cico">💾</div>
+          <div><div class="clbl">GitHub</div><div class="cval">Kashifhussain241</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="cright">
+      <div class="cfg"><label>Your Name</label><input type="text" placeholder="e.g. Ahmed Khan"></div>
+      <div class="cfg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="cfg"><label>Project Type</label><input type="text" placeholder="e.g. Website, Video Editing, Design..."></div>
+      <div class="cfg"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
+      <button class="csub" id="submitBtn">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">K<span>.</span>Hussain</div>
+  <span>Islamabad, Pakistan · Available for Remote Work</span>
+  <span>© 2026 Kashif Hussain</span>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('in'), i * 85);
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.getElementById('submitBtn').addEventListener('click', function() {
+  this.textContent = 'Message Sent! ✓';
+  this.style.background = '#0B7B6B';
+  setTimeout(() => { this.textContent = 'Send Message →'; this.style.background = ''; }, 3000);
+});
+</script>
+</body>
+</html>
